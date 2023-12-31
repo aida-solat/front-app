@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import PurchaseContext from './purchaseContext';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './pages/home';
+import Purchase from './pages/purchase';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
+  const [purchasedItems, setPurchasedItems] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <PurchaseContext.Provider value={{ purchasedItems, setPurchasedItems }}>
+        <Router>
+          <div className='App'>
+            <Routes>
+              <Route
+                path='/home'
+                element={<Home />}
+              />
+              <Route
+                path='/purchase'
+                element={<Purchase />}
+              />
+            </Routes>
+          </div>
+        </Router>
+      </PurchaseContext.Provider>
+      <ToastContainer />
+    </>
   );
 }
 
