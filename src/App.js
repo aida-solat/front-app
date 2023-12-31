@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PurchaseContext from './purchaseContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 import Home from './pages/home';
 import Purchase from './pages/purchase';
 import 'react-toastify/dist/ReactToastify.css';
