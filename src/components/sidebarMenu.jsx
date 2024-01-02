@@ -1,11 +1,13 @@
+import React from 'react';
 import { Sidebar, FloatingLabel } from 'flowbite-react';
 import { BiLogoProductHunt, BiSolidPurchaseTag } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 
 function SidebarMenu() {
   const location = useLocation();
+
   return (
-    <Sidebar className='h-screen'>
+    <Sidebar className='h-screen mt-4'>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <FloatingLabel
@@ -15,8 +17,8 @@ function SidebarMenu() {
           />
 
           <Sidebar.Item
-            active={location.pathname === '/home'}
-            href='/home'
+            active={location.pathname === '/'}
+            href='/'
             icon={BiLogoProductHunt}
           >
             Products
